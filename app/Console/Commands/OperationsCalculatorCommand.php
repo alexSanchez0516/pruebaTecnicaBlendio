@@ -3,10 +3,10 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Services\AdditionServiceInterface;
-use App\Services\SubtractionServiceInterface;
-use App\Services\MultiplicationServiceInterface;
-use App\Services\DivisionServiceInterface;
+use App\Interfaces\AdditionServiceInterface;
+use App\Interfaces\SubtractionServiceInterface;
+use App\Interfaces\MultiplicationServiceInterface;
+use App\Interfaces\DivisionServiceInterface;
 
 class OperationsCalculatorCommand extends Command
 {

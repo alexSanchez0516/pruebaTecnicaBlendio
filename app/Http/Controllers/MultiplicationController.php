@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\MultiplicationServiceInterface;
+use App\Interfaces\MultiplicationServiceInterface;
 
 class MultiplicationController extends Controller
 {

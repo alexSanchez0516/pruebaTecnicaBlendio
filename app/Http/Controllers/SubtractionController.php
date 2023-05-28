@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\SubtractionServiceInterface;
+use App\Interfaces\SubtractionServiceInterface;
 
 class SubtractionController extends Controller
 {

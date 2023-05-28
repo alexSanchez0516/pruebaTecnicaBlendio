@@ -1,11 +1,10 @@
 <?php
 namespace App\Services;
-
+use App\Interfaces\DivisionServiceInterface;
 class DivisionService implements DivisionServiceInterface
 {
-    public function divide($a, $b)
+    public function divide($a, $b) : float|\InvalidArgumentException
     {
-
         if (!is_numeric($a) || !is_numeric($b)) {
             throw new \InvalidArgumentException('Both operands must be numbers.');
         }
@@ -14,6 +13,6 @@ class DivisionService implements DivisionServiceInterface
             throw new \InvalidArgumentException("Cannot divide by zero.");
         }
 
-        return $a / $b;
+        return floatval($a / $b);
     }
 }

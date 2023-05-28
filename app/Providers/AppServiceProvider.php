@@ -5,13 +5,13 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Services\AdditionService;
-use App\Services\AdditionServiceInterface;
+use App\Interfaces\AdditionServiceInterface;
 use App\Services\SubtractionService;
-use App\Services\SubtractionServiceInterface;
+use App\Interfaces\SubtractionServiceInterface;
 use App\Services\MultiplicationService;
-use App\Services\MultiplicationServiceInterface;
+use App\Interfaces\MultiplicationServiceInterface;
 use App\Services\DivisionService;
-use App\Services\DivisionServiceInterface;
+use App\Interfaces\DivisionServiceInterface;
 
 class AppServiceProvider extends ServiceProvider
 {

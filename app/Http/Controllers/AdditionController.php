@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\AdditionServiceInterface;
+use App\Interfaces\AdditionServiceInterface;
 
 class AdditionController extends Controller
 {

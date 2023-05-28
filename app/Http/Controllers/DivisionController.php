@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\DivisionServiceInterface;
+use App\Interfaces\DivisionServiceInterface;
 
 class DivisionController extends Controller
 {
