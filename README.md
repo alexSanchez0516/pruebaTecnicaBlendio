@@ -1,66 +1,327 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Documentación del Proyecto: Calculadora
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Esta documentación describe el proyecto de una calculadora implementada en Laravel. La calculadora ofrece diferentes operaciones matemáticas a través de una API REST.
 
-## About Laravel
+#### NOTA: 
+Por el enunciado ("crear una serie de servicios") se entiende 
+que se deba crear un servicio para cada tipo de operación(eso entendí),
+asociando su controller, route y commando de Artisan.
+Se podría hacer con un solo servicio y que en el controller se llame
+al método que recibamos en la url, haciendo uso del 
+método "method_exists"
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Arrancar proyecto:
+- Php 8.1.2
+- Laravel 10.10
+- composer install
+- php artisan serve
+- listado endpoints: php artisan route:list --path=api
+- lanzar test: php artisan test
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+#### Endpoints: 
 
-## Learning Laravel
+## Suma
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Realiza la operación de suma entre dos operandos.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+    URL: /api/add/{operatorA}/{operatorB}
+    Método: GET
+    Parámetros:
+        operatorA: Primer operando numérico.
+        operatorB: Segundo operando numérico.
+    Respuesta exitosa (código 200):
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    json:
 
-## Laravel Sponsors
+    {
+        "result": 5
+    }
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    Respuesta de error (código 400):
 
-### Premium Partners
+    json:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+    {
+        "error": "Both operands must be numbers."
+    }
 
-## Contributing
+## Resta
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Realiza la operación de resta entre dos operandos.
 
-## Code of Conduct
+    URL: /api/subtract/{operatorA}/{operatorB}
+    Método: GET
+    Parámetros:
+        operatorA: Primer operando numérico.
+        operatorB: Segundo operando numérico.
+    Respuesta exitosa (código 200):
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+    json: 
 
-## Security Vulnerabilities
+    {
+    "result": 2
+    }
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Respuesta de error (código 400):
 
-## License
+    json:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    {
+      "error": "Both operands must be numbers."
+    }
+
+## Multiplicación
+
+Realiza la operación de multiplicación entre dos operandos.
+
+    URL: /api/multiply/{operatorA}/{operatorB}
+    Método: GET
+    Parámetros:
+        operatorA: Primer operando numérico.
+        operatorB: Segundo operando numérico.
+    Respuesta exitosa (código 200):
+
+    json:
+
+    {
+    "result": 12
+    }
+
+Respuesta de error (código 400):
+
+    json
+
+    {
+      "error": "Both operands must be numbers."
+    }
+
+#División
+
+Realiza la operación de división entre dos operandos.
+
+    URL: /api/divide/{operatorA}/{operatorB}
+    Método: GET
+    Parámetros:
+        operatorA: Primer operando numérico.
+        operatorB: Segundo operando numérico.
+    Respuesta exitosa (código 200):
+
+    json:
+
+    {
+        "result": 5
+    }
+
+Respuestas de error (código 400):
+
+    json:
+
+    {
+      "error": "Both operands must be numbers."
+    }
+
+
+    {
+      "error": "Cannot divide by zero."
+    }
+    
+
+## Servicios
+
+#### AdditionService
+
+Realiza la operación de suma entre dos operandos.
+
+    Método: add($operandA, $operandB)
+    Parámetros:
+        $operandA: Primer operando numérico.
+        $operandB: Segundo operando numérico.
+    Retorna: Resultado de la suma.
+
+#### SubtractionService
+
+Realiza la operación de resta entre dos operandos.
+
+    Método: subtract($operandA, $operandB)
+    Parámetros:
+        $operandA: Primer operando numérico.
+        $operandB: Segundo operando numérico.
+    Retorna: Resultado de la resta.
+
+#### MultiplicationService
+
+Realiza la operación de multiplicación entre dos operandos.
+
+    Método: multiply($operandA, $operandB)
+    Parámetros:
+        $operandA: Primer operando numérico.
+        $operandB: Segundo operando numérico.
+    Retorna: Resultado de la multiplicación.
+
+#### DivisionService
+
+Realiza la operación de división entre dos operandos.
+
+    Método: divide($operandA, $operandB)
+    Parámetros:
+        $operandA: Primer operando numérico.
+        $operandB: Segundo operando numérico.
+    Retorna: Resultado de la división.
+
+## Controladores
+#### AdditionController
+
+Controlador para la operación de suma.
+
+    Método: add($operatorA, $operatorB)
+    Parámetros:
+        $operatorA: Primer operando numérico.
+        $operatorB: Segundo operando numérico.
+    Retorna: Respuesta JSON con el resultado de la suma.
+
+#### SubtractionController
+
+Controlador para la operación de resta.
+
+    Método: subtract($operatorA, $operatorB)
+    Parámetros:
+        $operatorA: Primer operando numérico.
+        $operatorB: Segundo operando numérico.
+    Retorna: Respuesta JSON con el resultado de la resta.
+
+#### MultiplicationController
+
+Controlador para la operación de multiplicación.
+
+    Método: multiply($operatorA, $operatorB)
+    Parámetros:
+        $operatorA: Primer operando numérico.
+        $operatorB: Segundo operando numérico.
+    Retorna: Respuesta JSON con el resultado de la multiplicación.
+
+#### DivisionController
+
+Controlador para la operación de división.
+
+    Método: divide($operatorA, $operatorB)
+    Parámetros:
+        $operatorA: Primer operando numérico.
+        $operatorB: Segundo operando numérico.
+    Retorna: Respuesta JSON con el resultado de la división.
+
+## Pruebas 
+(Se han echo pruebas tanto en los controllers como en los services)
+###### php artisan test
+#### Prueba para la suma
+
+Archivo: AdditionControllerTest.php
+
+    Verifica el resultado de la adición entre dos operandos válidos.
+    Verifica la respuesta de error cuando uno de los operandos no es un número.
+
+#### Prueba para la resta
+
+Archivo: SubtractionControllerTest.php
+
+    Verifica el resultado de la sustracción entre dos operandos válidos.
+    Verifica la respuesta de error cuando uno de los operandos no es un número.
+
+#### Prueba para la multiplicación
+
+Archivo: MultiplicationControllerTest.php
+
+    Verifica el resultado de la multiplicación entre dos operandos válidos.
+    Verifica la respuesta de error cuando uno de los operandos no es un número.
+
+#### Prueba para la división
+
+Archivo: DivisionControllerTest.php
+
+    Verifica el resultado de la división entre dos operandos válidos.
+    Verifica la respuesta de error cuando se intenta dividir por cero.
+    Verifica la respuesta de error cuando uno de los operandos no es un número.
+
+
+
+## Comandos Artisan
+
+
+#### Comando operations:add
+
+Este comando realiza la operación de suma y devuelve el resultado por consola.
+Uso
+
+php artisan operations {operandA} {operandB} add
+
+    {operandA}: Primer operando numérico.
+    {operandB}: Segundo operando numérico.
+
+##### Ejemplo
+
+
+php artisan operations 5 6 add
+
+Salida esperada
+
+
+Result: 11
+
+#### Comando operations:subtract
+
+Este comando realiza la operación de resta y devuelve el resultado por consola.
+
+Uso
+
+php artisan operations {operandA} {operandB} subtract
+
+    {operandA}: Primer operando numérico.
+    {operandB}: Segundo operando numérico.
+
+##### Ejemplo
+
+php artisan operations 10 5 subtract
+
+Salida esperada
+
+Result: 5
+
+#### Comando operations:multiply
+
+Este comando realiza la operación de multiplicación y devuelve el resultado por consola.
+
+Uso
+
+
+php artisan operations {operandA} {operandB} multiply
+
+    {operandA}: Primer operando numérico.
+    {operandB}: Segundo operando numérico.
+
+##### Ejemplo
+
+php artisan operations 3 4 multiply
+
+Salida esperada
+
+Result: 12
+
+#### Comando operations:divide
+
+Este comando realiza la operación de división y devuelve el resultado por consola.
+
+Uso
+
+php artisan operations {operandA} {operandB} divide
+
+    {operandA}: Primer operando numérico.
+    {operandB}: Segundo operando numérico.
+
+##### Ejemplo
+
+php artisan operations 10 2 divide
+
+Salida esperada
+
+Result: 5
+

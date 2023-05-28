@@ -3,17 +3,21 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\AdditionController;
+use App\Http\Controllers\SubtractionController;
+use App\Http\Controllers\MultiplicationController;
+use App\Http\Controllers\DivisionController;
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('{operation}/{operatorA}/{operatorB}', function ($operation, $operatorA, $operatorB) {
+    if ($operation === 'add') {
+        return app(AdditionController::class)->calculate($operatorA, $operatorB);
+    } elseif ($operation === 'subtract') {
+        return app(SubtractionController::class)->calculate($operatorA, $operatorB);
+    } elseif ($operation === 'multiply') {
+        return app(MultiplicationController::class)->calculate($operatorA, $operatorB);
+    } elseif ($operation === 'divide') {
+        return app(DivisionController::class)->calculate($operatorA, $operatorB);
+    } else {
+        return response()->json(['error' => 'Invalid operation'], 400);
+    }
 });
