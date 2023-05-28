@@ -1,12 +1,10 @@
 <?php
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
 use App\Http\Controllers\AdditionController;
 use App\Http\Controllers\SubtractionController;
 use App\Http\Controllers\MultiplicationController;
 use App\Http\Controllers\DivisionController;
+
 
 Route::get('{operation}/{operatorA}/{operatorB}', function ($operation, $operatorA, $operatorB) {
     if ($operation === 'add') {
