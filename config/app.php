@@ -159,7 +159,7 @@ return [
         /*
          * Package Service Providers...
          */
-
+        App\Providers\ConsoleServiceProvider::class,
         /*
          * Application Service Providers...
          */

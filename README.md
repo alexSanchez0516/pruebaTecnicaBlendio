@@ -16,7 +16,7 @@ método "method_exists"
 - composer install
 - php artisan serve
 - listado endpoints: php artisan route:list --path=api
-- lanzar test: php artisan test
+- lanzar test: php artisan test / test de comandos : php artisan test  tests/Console/
 
 
 #### Endpoints: 
@@ -211,7 +211,7 @@ Controlador para la operación de división.
     Retorna: Respuesta JSON con el resultado de la división.
 
 ## Pruebas 
-(Se han echo pruebas tanto en los controllers como en los services)
+(Se han echo pruebas tanto en los controllers como en los services y los comandos)
 ###### php artisan test
 #### Prueba para la suma
 
@@ -247,12 +247,12 @@ Archivo: DivisionControllerTest.php
 ## Comandos Artisan
 
 
-#### Comando operations:add
+#### Comando add
 
 Este comando realiza la operación de suma y devuelve el resultado por consola.
 Uso
 
-php artisan operations {operandA} {operandB} add
+php artisan add {operandA} {operandB}
 
     {operandA}: Primer operando numérico.
     {operandB}: Segundo operando numérico.
@@ -260,66 +260,66 @@ php artisan operations {operandA} {operandB} add
 ##### Ejemplo
 
 
-php artisan operations 5 6 add
+php artisan add 5 6 
 
 Salida esperada
 
 
 Result: 11
 
-#### Comando operations:subtract
+#### Comando subtract
 
 Este comando realiza la operación de resta y devuelve el resultado por consola.
 
 Uso
 
-php artisan operations {operandA} {operandB} subtract
+php artisan subtract {operandA} {operandB} 
 
     {operandA}: Primer operando numérico.
     {operandB}: Segundo operando numérico.
 
 ##### Ejemplo
 
-php artisan operations 10 5 subtract
+php artisan subtract 10 5 
 
 Salida esperada
 
 Result: 5
 
-#### Comando operations:multiply
+#### Comando multiply
 
 Este comando realiza la operación de multiplicación y devuelve el resultado por consola.
 
 Uso
 
 
-php artisan operations {operandA} {operandB} multiply
+php artisan multiply {operandA} {operandB}
 
     {operandA}: Primer operando numérico.
     {operandB}: Segundo operando numérico.
 
 ##### Ejemplo
 
-php artisan operations 3 4 multiply
+php artisan multiply 3 4 
 
 Salida esperada
 
 Result: 12
 
-#### Comando operations:divide
+#### Comando divide
 
 Este comando realiza la operación de división y devuelve el resultado por consola.
 
 Uso
 
-php artisan operations {operandA} {operandB} divide
+php artisan divide {operandA} {operandB} 
 
     {operandA}: Primer operando numérico.
     {operandB}: Segundo operando numérico.
 
 ##### Ejemplo
 
-php artisan operations 10 2 divide
+php artisan divide 10 2
 
 Salida esperada
 
